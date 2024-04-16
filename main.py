@@ -10,12 +10,12 @@ from utils.load_wav_as_numpy import load_wav_as_numpy
 import numpy as np
 
 
-app = Flask(__name__)
-CORS(app)
+# app = Flask(__name__)
+# CORS(app)
 
 
 
-@app.route('/', methods=['GET'])
+# @app.route('/', methods=['GET'])
 def get_data():
 
     wavs = load_wav_as_numpy("hed.wav")
@@ -28,6 +28,7 @@ def get_data():
 
     return "True"
 
+get_data()
 
     # shape = dataset.shape[0]
     # emphasize = generate_strong_movement(shape, 200, 2, 100, 20)
@@ -40,5 +41,5 @@ def get_data():
     # return jsonify(scaled_array.T.tolist())
 
 
-if __name__ == '__main__':
-    app.run(port=8080, host='0.0.0.0')
+# if __name__ == '__main__':
+#     app.run(port=8080, host='0.0.0.0')
