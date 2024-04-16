@@ -19,10 +19,12 @@ CORS(app)
 def get_data():
 
     wavs = load_wav_as_numpy("hed.wav")
+    print(f'wavs: {wavs.shape}')
 
     bins = get_output_tensor(wavs)
     print(f'bins: {bins.shape}')
-    prediction = run_inference(bins)
+    predictions = run_inference(bins)
+    print(f'predictions: {predictions.shape}')
 
     return "True"
 
