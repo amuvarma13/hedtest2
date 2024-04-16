@@ -55,7 +55,7 @@ def get_data():
     print(f'extended: {extended.shape}')
 
     scaled = scale_array(extended)
-    magnitude = 0.4
+    magnitude = 0.7
     
     scaled = scaled * magnitude
     scaled = scaled.T.tolist()
