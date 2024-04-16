@@ -38,9 +38,10 @@ def get_data():
     smoothed_predictions = predictions.squeeze()
     smoothed_predictions = convolve1D(smoothed_predictions, 3) # data, window
     smoothed_predictions = convolve1D(smoothed_predictions, 3)
-    smoothed_predictions = convolve1D(smoothed_predictions, 6)
-    smoothed_predictions = convolve1D(smoothed_predictions, 6)
-    smoothed_predictions = convolve1D(smoothed_predictions, 6)
+    smoothed_predictions = convolve1D(smoothed_predictions, 3)
+    # smoothed_predictions = convolve1D(smoothed_predictions, 6)
+    # smoothed_predictions = convolve1D(smoothed_predictions, 6)
+    # smoothed_predictions = convolve1D(smoothed_predictions, 6)
     # smoothed_predictions = convolve1D(smoothed_predictions, 12)
     # smoothed_predictions = convolve1D(smoothed_predictions, 12)
     # smoothed_predictions = convolve1D(smoothed_predictions, 12)
