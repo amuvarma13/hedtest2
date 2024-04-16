@@ -8,10 +8,16 @@ from utils.get_bins import get_output_tensor
 from utils.run_inference import run_inference
 from utils.load_wav_as_numpy import load_wav_as_numpy
 import numpy as np
+import torch
+
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print(device)
 
 
 # app = Flask(__name__)
 # CORS(app)
+
+
 
 
 
