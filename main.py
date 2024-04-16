@@ -50,7 +50,7 @@ def get_data():
 
     return jsonify(predictions_list)
 
-get_data()
+# get_data()
 
 
 
