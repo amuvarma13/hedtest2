@@ -20,10 +20,9 @@ def create_cubic_array(L, n):
 
     return full_array
 
-def scale_array(array):
+def scale_array(array, scale_index=20):
     length = array.shape[0]
-    result_array = create_cubic_array(length, 20)
-    # Reshape result_array to make it compatible for broadcasting
+    result_array = create_cubic_array(length, scale_index)
     result_array_reshaped = result_array[:, np.newaxis]
     scaled_array = array * result_array_reshaped
     return scaled_array

@@ -9,6 +9,7 @@ from utils.run_inference import run_inference
 from utils.load_wav_as_numpy import load_wav_as_numpy
 from utils.convolved1D import convolve1D
 from utils.extend import extend
+from utils.scale_array import scale_array
 import numpy as np
 import torch
 
@@ -52,10 +53,12 @@ def get_data():
     print(f'predictions: {smoothed_predictions.shape}')
     extended = extend(smoothed_predictions, predictions.shape[0])
     print(f'extended: {extended.shape}')
-    extended = extended.T.tolist()
+
+    scaled = scale_array(extended)
+    scaled = scaled.T.tolist()
 
 
-    return jsonify(extended)
+    return jsonify(scaled)
 
 # get_data()
 
