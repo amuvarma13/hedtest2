@@ -22,6 +22,8 @@ model = Sequential([
     Dense(output_units, activation='linear')  # Output layer with linear activation
 ])
 
+print(model.summary())
+
 
 # Load the weights
 # model.load_weights('model_weights.h5')
