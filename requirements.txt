@@ -1,4 +1,4 @@
-tensorflow
-tf_keras
-keras
-keras-tcn
+tensorflow ==2.15
+tf_keras==2.15.1
+keras==2.15.0
+keras-tcn==3.5.0
