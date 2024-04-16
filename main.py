@@ -34,7 +34,7 @@ def get_data():
     print(f'bins: {bins.shape}')
     predictions = run_inference(bins)
     print(f'predictions: {predictions.shape}')
-    predictions_list = predictions.tolist()
+    predictions_list = predictions.T.tolist()
 
     return jsonify(predictions_list)
 
