@@ -41,9 +41,9 @@ def get_data():
     smoothed_predictions = convolve1D(smoothed_predictions, 6)
     smoothed_predictions = convolve1D(smoothed_predictions, 6)
     smoothed_predictions = convolve1D(smoothed_predictions, 6)
-    smoothed_predictions = convolve1D(smoothed_predictions, 12)
-    smoothed_predictions = convolve1D(smoothed_predictions, 12)
-    smoothed_predictions = convolve1D(smoothed_predictions, 12)
+    # smoothed_predictions = convolve1D(smoothed_predictions, 12)
+    # smoothed_predictions = convolve1D(smoothed_predictions, 12)
+    # smoothed_predictions = convolve1D(smoothed_predictions, 12)
     print(f'predictions: {smoothed_predictions.shape}')
     smoothed_predictions = smoothed_predictions.T.tolist()
 
