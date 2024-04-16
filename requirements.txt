@@ -7,3 +7,4 @@ torch
 flask
 flask_cors
 numpy
+librosa
