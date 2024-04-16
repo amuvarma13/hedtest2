@@ -26,7 +26,7 @@ print(model.summary())
 
 
 # Load the weights
-# model.load_weights('model_weights.h5')
+model.load_weights('model_weights.h5')
 
 # print("model weights loaded")
 # processor = Wav2Vec2Processor.from_pretrained('facebook/wav2vec2-base-960h')
