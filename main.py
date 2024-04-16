@@ -15,17 +15,17 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f'device is {device}')
 
 
-# app = Flask(__name__)
-# CORS(app)
+app = Flask(__name__)
+CORS(app)
 
 
-# @app.route('/ping', methods=['GET'])
-# def ping():
-#     return "pong"
+@app.route('/ping', methods=['GET'])
+def ping():
+    return "pong"
 
 
 
-# @app.route('/', methods=['GET'])
+@app.route('/', methods=['GET'])
 def get_data():
 
     wavs = load_wav_as_numpy("hed4.wav")
@@ -65,5 +65,5 @@ get_data()
     # return jsonify(scaled_array.T.tolist())
 
 
-# if __name__ == '__main__':
-#     app.run(port=8080, host='0.0.0.0')
+if __name__ == '__main__':
+    app.run(port=8080, host='0.0.0.0')
