@@ -31,8 +31,10 @@ def get_data():
     print(f'bins: {bins.shape}')
     predictions = run_inference(bins)
     print(f'predictions: {predictions.shape}')
+    predictions_list = predictions.tolist()
 
-    return jsonify(predictions)
+    return jsonify(predictions_list)
+
 
 
     # shape = dataset.shape[0]
