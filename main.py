@@ -34,8 +34,11 @@ def get_data():
     bins = get_output_tensor(wavs)
     print(f'bins: {bins.shape}')
     predictions = run_inference(bins)
-    print(f'predictions: {predictions.shape}')
-    smoothed_predictions = predictions.squeeze()
+    smoothed_predictions = predictions
+    predictions_centered = predictions - np.mean(predictions, axis=1, keepdims=True)
+    max_abs = np.max(np.abs(predictions_centered), axis=1, keepdims=True)
+    smoothed_predictions = (predictions_centered / max_abs) * 1  # Multiply by 1 for scaling to [-1, 1]
+    
     smoothed_predictions = convolve1D(smoothed_predictions, 3) # data, window
     smoothed_predictions = convolve1D(smoothed_predictions, 3)
     smoothed_predictions = convolve1D(smoothed_predictions, 3)

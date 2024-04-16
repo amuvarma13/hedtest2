@@ -30,4 +30,4 @@ model.load_weights('model_weights.h5')
 def run_inference (nd_array):
     
     predictions = model.predict(nd_array)
-    return predictions
+    return predictions.squeeze()
