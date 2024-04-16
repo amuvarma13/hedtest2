@@ -10,6 +10,7 @@ from utils.load_wav_as_numpy import load_wav_as_numpy
 from utils.convolved1D import convolve1D
 from utils.extend import extend
 from utils.scale_array import scale_array
+from utils.get_scaling_vector import get_scaling_vector
 import numpy as np
 import torch
 
@@ -29,6 +30,8 @@ def ping():
 
 @app.route('/', methods=['POST'])
 def get_data():
+
+    scaling_vector = get_scaling_vector()
 
     wavs = load_wav_as_numpy("hed4.wav")
     print(f'wavs: {wavs.shape}')
@@ -55,9 +58,8 @@ def get_data():
     print(f'extended: {extended.shape}')
 
     scaled = scale_array(extended)
-    magnitude_vector = np.array([[1,1,0.4,1,1]])
     
-    scaled = scaled * magnitude_vector
+    scaled = scaled * scaling_vector
     print("scaled.shape", scaled.shape)
     scaled = scaled.T.tolist()
     return jsonify(scaled)
