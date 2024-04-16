@@ -55,7 +55,7 @@ def get_data():
     print(f'extended: {extended.shape}')
 
     scaled = scale_array(extended)
-    magnitude_vector = np.array([1,1,0.4,1,1])
+    magnitude_vector = np.array([[1,1,0.4,1,1]])
     
     scaled = scaled * magnitude_vector
     print("scaled.shape", scaled.shape)
