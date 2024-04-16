@@ -1,7 +1,7 @@
 from keras.models import load_model
 from tcn import TCN 
-import torch
-from transformers import Wav2Vec2Processor, Wav2Vec2Model
+# from transformers import Wav2Vec2Processor, Wav2Vec2Model
+# import torch
 from keras.models import Sequential
 from tensorflow.keras.layers import Dense
 
