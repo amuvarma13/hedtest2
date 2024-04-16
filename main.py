@@ -35,7 +35,8 @@ def get_data():
     print(f'bins: {bins.shape}')
     predictions = run_inference(bins)
     print(f'predictions: {predictions.shape}')
-    smoothed_predictions = convolve1D(predictions, 3) # data, window
+    smoothed_predictions = predictions.squeeze()
+    smoothed_predictions = convolve1D(smoothed_predictions, 3) # data, window
     smoothed_predictions = convolve1D(smoothed_predictions, 3)
     smoothed_predictions = convolve1D(smoothed_predictions, 6)
     smoothed_predictions = convolve1D(smoothed_predictions, 6)
