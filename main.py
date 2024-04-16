@@ -27,7 +27,7 @@ def ping():
 
 
 
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['POST'])
 def get_data():
 
     wavs = load_wav_as_numpy("hed4.wav")
@@ -55,9 +55,10 @@ def get_data():
     print(f'extended: {extended.shape}')
 
     scaled = scale_array(extended)
-    magnitude = 0.7
+    magnitude_vector = np.array([1,1,0.4,1,1])
     
-    scaled = scaled * magnitude
+    scaled = scaled * magnitude_vector
+    print("scaled.shape", scaled.shape)
     scaled = scaled.T.tolist()
     return jsonify(scaled)
 
