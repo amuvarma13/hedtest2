@@ -34,7 +34,7 @@ def get_data():
     bins = get_output_tensor(wavs)
     print(f'bins: {bins.shape}')
     predictions = run_inference(bins)
-    smoothed_predictions = convolve1D(smoothed_predictions, 3)
+    smoothed_predictions = convolve1D(predictions, 3) # data, window
     smoothed_predictions = convolve1D(smoothed_predictions, 3)
     smoothed_predictions = convolve1D(smoothed_predictions, 6)
     smoothed_predictions = convolve1D(smoothed_predictions, 6)
