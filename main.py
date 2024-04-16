@@ -7,6 +7,7 @@ from flask_cors import CORS
 from utils.get_bins import get_output_tensor
 from utils.run_inference import run_inference
 from utils.load_wav_as_numpy import load_wav_as_numpy
+from utils.convolved1D import convolve1D
 import numpy as np
 import torch
 
@@ -33,8 +34,17 @@ def get_data():
     bins = get_output_tensor(wavs)
     print(f'bins: {bins.shape}')
     predictions = run_inference(bins)
+    smoothed_predictions = convolve1D(smoothed_predictions, 3)
+    smoothed_predictions = convolve1D(smoothed_predictions, 3)
+    smoothed_predictions = convolve1D(smoothed_predictions, 6)
+    smoothed_predictions = convolve1D(smoothed_predictions, 6)
+    smoothed_predictions = convolve1D(smoothed_predictions, 6)
+    smoothed_predictions = convolve1D(smoothed_predictions, 12)
+    smoothed_predictions = convolve1D(smoothed_predictions, 12)
+    smoothed_predictions = convolve1D(smoothed_predictions, 12)
     print(f'predictions: {predictions.shape}')
     predictions_list = predictions.T.tolist()
+
 
     return jsonify(predictions_list)
 
