@@ -8,6 +8,7 @@ from utils.get_bins import get_output_tensor
 from utils.run_inference import run_inference
 from utils.load_wav_as_numpy import load_wav_as_numpy
 from utils.convolved1D import convolve1D
+from utils.extend import extend
 import numpy as np
 import torch
 
@@ -49,6 +50,7 @@ def get_data():
     # smoothed_predictions = convolve1D(smoothed_predictions, 12)
     # smoothed_predictions = convolve1D(smoothed_predictions, 12)
     print(f'predictions: {smoothed_predictions.shape}')
+    extended = extend(smoothed_predictions, predictions.shape[0])
     smoothed_predictions = smoothed_predictions.T.tolist()
 
 
