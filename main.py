@@ -24,7 +24,7 @@ CORS(app)
 @app.route('/', methods=['GET'])
 def get_data():
 
-    wavs = load_wav_as_numpy("hed.wav")
+    wavs = load_wav_as_numpy("hed4.wav")
     print(f'wavs: {wavs.shape}')
 
     bins = get_output_tensor(wavs)
