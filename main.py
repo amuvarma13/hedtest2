@@ -1,11 +1,11 @@
 from flask import Flask, jsonify
 import numpy as np
 from flask_cors import CORS
-
-from generate_strong_movement import generate_strong_movement
-from scale_array import scale_array
-from generate_time_series_data import predict
+# from scale_array import scale_array
 # Add Flask CORS
+
+from utils.get_bins import get_output_tensor
+from utils.run_inference import run_inference
 
 
 app = Flask(__name__)
@@ -17,8 +17,10 @@ CORS(app)
 def get_data():
 
     wavs = np.load("hed.wav")
-    wavs = predict(wavs)
-    print(wavs)
+
+    bins = get_output_tensor(wavs)
+    print(f'bins: {bins.shape}')
+    prediction = run_inference(bins)
 
     return "True"
 
