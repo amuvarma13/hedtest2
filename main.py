@@ -16,7 +16,7 @@ CORS(app)
 @app.route('/', methods=['GET'])
 def get_data():
 
-    wavs = np.load("head.wav")
+    wavs = np.load("hed.wav")
     wavs = predict(wavs)
     print(wavs)
 

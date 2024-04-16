@@ -1,9 +1,8 @@
 from keras.models import load_model
 from tcn import TCN 
-from transformers import Wav2Vec2Processor, Wav2Vec2Model
-import torch
 from keras.models import Sequential
 from tensorflow.keras.layers import Dense
+import torch
 
 # Manually recreate the architecture
 input_shape = (None, 768)  # None signifies variable sequence lengths, 768 might be your feature dimension
@@ -25,19 +24,10 @@ model = Sequential([
 ])
 
 print(model.summary())
-
-
-
-# Load the weights
 model.load_weights('model_weights.h5')
 
-print("model weights loaded")
-processor = Wav2Vec2Processor.from_pretrained('facebook/wav2vec2-base-960h')
-aud_model = Wav2Vec2Model.from_pretrained('facebook/wav2vec2-base-960h')
-aud_model = aud_model.to(device)
-inputs = processor(resampled_audio, sampling_rate=16000, return_tensors="pt", padding=True)
-inputs = inputs.to(device)
-with torch.no_grad():
-    outputs = aud_model(**inputs)
-output_tensor = outputs.last_hidden_state
-print(output_tensor)
+
+def run_inference (nd_array):
+    
+    predictions = model.predict(nd_array)
+    return predictions
