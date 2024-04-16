@@ -4,3 +4,6 @@ keras
 keras-tcn
 transformers
 torch
+flask
+flask_cors
+numpy
