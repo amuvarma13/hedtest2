@@ -51,10 +51,11 @@ def get_data():
     # smoothed_predictions = convolve1D(smoothed_predictions, 12)
     print(f'predictions: {smoothed_predictions.shape}')
     extended = extend(smoothed_predictions, predictions.shape[0])
-    smoothed_predictions = smoothed_predictions.T.tolist()
+    print(f'extended: {extended.shape}')
+    extended = extended.T.tolist()
 
 
-    return jsonify(smoothed_predictions)
+    return jsonify(extended)
 
 # get_data()
 
