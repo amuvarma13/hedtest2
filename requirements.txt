@@ -2,3 +2,5 @@ tensorflow
 tf_keras
 keras
 keras-tcn
+transformers
+torch
